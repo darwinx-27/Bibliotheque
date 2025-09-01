@@ -677,12 +677,9 @@ td img:hover {
     color: var(--neutral-300);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     
-    /* Position fixe */
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    /* Position normale (non fixe) */
+    position: relative;
     width: 100%;
-    z-index: 1000;
     
     /* Ombre pour la séparation */
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
@@ -690,9 +687,10 @@ td img:hover {
 
 .footer-content {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
+    flex-direction: row;
+    gap: var(--space-lg);
     align-items: center;
+    justify-content: center;
 }
 
 .footer p {
@@ -736,16 +734,16 @@ td img:hover {
     width: 100%;
 }
 
-/* Ajuster le conteneur principal pour éviter que le contenu soit caché par le footer */
+/* Ajuster le conteneur principal maintenant que le footer n'est plus fixe */
 .main-container {
     max-width: 1200px;
-    margin: 7rem auto calc(var(--space-2xl) + 60px); /* Réduire l'espace pour le footer plus compact */
+    margin: 7rem auto var(--space-2xl);
     padding: 0 var(--space-xl);
     animation: fadeInUp 0.8s ease-out;
-    min-height: calc(100vh - 200px); /* Assurer une hauteur minimale */
+    min-height: calc(100vh - 200px);
 }
 
-/* Assurer que le body a une hauteur suffisante pour le footer fixe */
+/* Styles de base du body */
 body {
     font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -754,7 +752,6 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     min-height: 100vh;
-    padding-bottom: 60px; /* Réduire l'espace pour le footer plus compact */
 }
 
 /* Animation d'entrée pour le footer */
@@ -773,16 +770,18 @@ body {
     }
     
     .footer-content {
+        flex-direction: column;
         gap: var(--space-xs);
     }
     
     .footer-author {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
         padding-top: var(--space-xs);
         margin-top: var(--space-xs);
     }
     
     .main-container {
-        margin-bottom: calc(var(--space-2xl) + 60px); /* Réduire encore plus pour mobile */
+        margin-bottom: var(--space-2xl);
     }
     
     /* Ajustements pour le menu mobile sur très petits écrans */
@@ -852,7 +851,7 @@ body {
     
     .main-container {
         padding: 0 var(--space-lg);
-        margin-bottom: calc(var(--space-2xl) + 80px); /* Réduire pour le footer plus compact */
+        margin-bottom: var(--space-2xl);
     }
     
     .card {
@@ -947,7 +946,7 @@ body {
     
     .main-container {
         margin-top: 6rem;
-        margin-bottom: calc(var(--space-2xl) + 100px); /* Réduire pour le footer plus compact */
+        margin-bottom: var(--space-2xl);
         padding: 0 var(--space-md);
     }
     
